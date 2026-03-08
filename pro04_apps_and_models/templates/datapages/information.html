@@ -1,0 +1,40 @@
+<h1>Data Page</h1>
+  <div>
+    <a href="{% url 'homepage' %}" >Home</a><br>
+    <a href="{% url 'aboutpage' %}" >About</a><br>
+    <a href="{% url 'post_page' %}" >Messages</a><br>
+  </div>
+
+<h2>Employees</h2>
+
+  <div>
+    <table border="1" width="200" height="200">
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+        {% for emp in employees %}
+        <tr>
+            <td align="center">{{ emp.name }}</td>
+            <td align="center">{{ emp.role }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+  </div>
+
+
+<h2>Products</h2>
+
+  <div>
+    <table border="1" width="200" height="200">
+        <tr>
+            <th>Product Name</th>
+        </tr>
+        {% for prod in products %}
+        <tr>
+            <td align="center">{{ prod }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+  </div>
+
