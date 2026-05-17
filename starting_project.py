@@ -98,3 +98,30 @@
 # If you’d like to see the admin, forms, and other default messages in a
 # language other than English, adjust the LANGUAGE_CODE in the
 # "settings.py" file, which is automatically set to American English “en-us”.
+
+# Optional: Register your app model:
+# If you want to register your apps models and display them in the admin page,
+# you do it in "admin.py" in your app folder.
+
+# To show your model on your page, you should create a view.
+
+# This is the power of Django ORM, you can store your data in the database by
+# creating a model and then retrieving your data easily using your object and
+# the QuerySet methods, instead of storing your data in a normal list,
+# dictionaries, etc.
+
+
+# You can check the "QuerySet API reference" in Django docs, which covers
+# methods like
+# .all(), .filter(), .exclude(), .get(), .order_by(), .values(), .count(),
+# .exists(), .aggregate(), and more.
+# Here is the link:
+# https://docs.djangoproject.com/en/6.0/ref/models/querysets/
+# and,
+# "Making queries" explains how to use QuerySets in practice, with
+# examples of creating, retrieving, updating, and deleting objects:
+# https://docs.djangoproject.com/en/6.0/topics/db/queries/
+
+# Note you can make queries, update, delete, etc. using the Django Python
+# shell:
+# python manage.py shell
