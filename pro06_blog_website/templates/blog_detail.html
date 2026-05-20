@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Blogs - My Blog{% endblock title %}
+
+{% block content %}
+<h3>{{ post.title }}</h3>
+<p><strong>By Author:</strong> {{ post.author }}</p>
+<p>{{ post.message }}</p>
+<a href="{% url 'blogs_list' %}">Back to all blogs</a>
+
+{% endblock content %}

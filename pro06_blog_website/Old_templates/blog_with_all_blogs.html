@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Blogs - My Blog{% endblock title %}
+
+{% block content %}
+    <h1>All Blogs</h1>
+    <div class="blogs-container">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="blog-card">
+                    <h2><strong>Subject:</strong> {{ post.title }}</h2>
+                    <p><strong>Author:</strong> {{ post.author }}</p>
+                    <p><strong>Content:</strong></p>
+                    <p>{{ post.message }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No blogs available yet.</p>
+        {% endif %}
+    </div>
+{% endblock content %}

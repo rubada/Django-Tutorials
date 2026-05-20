@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Blogs - My Blog{% endblock title %}
+
+{% block content %}
+    <h1>All Blogs</h1>
+    <div class="blogs-container">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="blog-card">
+                    <p><strong>Subject:</strong> <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>    
+                    <p><strong>Author:</strong> {{ post.author }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No blogs available yet.</p>
+        {% endif %}
+    </div>
+{% endblock content %}
