@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Create Blog - My Blog{% endblock title %}
+
+{% block content %}
+    <h1>Create a New Blog</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} is a Django template tag that automatically renders all
+          form fields wrapped in <p> tags. -->
+        {{ form.as_p }}
+        <button type="submit">Create Blog</button>
+        <a href="{% url 'blogs_list' %}">Cancel</a>
+    </form>
+{% endblock content %}

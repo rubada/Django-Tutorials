@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Blogs - My Blog{% endblock title %}
+
+{% block content %}
+    <h1>All Blogs</h1>
+    <div class="blogs-container">
+        {% if blogs %}
+            {% for blog in blogs %}
+                <div class="blog-card">
+                    <p><strong>Subject:</strong> <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></p>    
+                    <p><strong>Author:</strong> {{ blog.first_name }} {{ blog.last_name }}</p>
+                    <!-- Here adding the links for the blog actions: edit and delete-->
+                    <div class="blog-actions">
+                        <a href="{% url 'blog_update' blog.slug %}">Edit</a>
+                        <a href="{% url 'blog_delete' blog.slug %}">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No blogs available yet.</p>
+        {% endif %}
+    </div>
+{% endblock content %}
