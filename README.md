@@ -13,5 +13,5 @@ Advance your skills and start your career here, by taking the online courses on 
 
 To learn more about this course, please check below course contents, all the videos related to this course are on my youtube channel [Intuidemy](https://www.youtube.com/@Intuidemy/playlists).
 
-[1. Django for Beginners.oduction.](https://www.youtube.com/playlist?list=PLD06In0ejHWYPaw672_qPWLJwT6QokD7q)
-[2. Build a Complete Blog with Django.](https://www.youtube.com/playlist?list=PLD06In0ejHWZ9L-XT84tvbCbIyiVYESFO)
+1. Django for Beginners.oduction.](https://www.youtube.com/playlist?list=PLD06In0ejHWYPaw672_qPWLJwT6QokD7q)
+2. Build a Complete Blog with Django.](https://www.youtube.com/playlist?list=PLD06In0ejHWZ9L-XT84tvbCbIyiVYESFO)
