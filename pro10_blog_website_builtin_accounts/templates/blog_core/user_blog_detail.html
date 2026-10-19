@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Blogs - My Blog{% endblock title %}
+
+{% block content %}
+<h3>{{ blog.title }}</h3>
+<p><strong>By:</strong> {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
+<!-- <p><strong>By:</strong> {{ blog.author.username }}</p> -->
+<p>{{ blog.content }}</p>
+
+<div class="blog-actions">
+    <a href="{% url 'blog_update' blog.slug %}">Edit</a>
+    <a href="{% url 'blog_delete' blog.slug %}">Delete</a>
+    <a href="{% url 'blogs_list' %}">Back to all blogs</a>
+</div>
+
+{% endblock content %}
