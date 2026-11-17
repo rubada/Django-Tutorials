@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Blogs - My Blog{% endblock title %}
+
+{% block content %}
+    <h1>All Blogs</h1>
+    <div class="blogs-container">
+        {% if blogs %}
+            {% for blog in blogs %}
+                <div class="blog-card">
+                    <p><strong>Subject:</strong> <a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></p>
+                    <!-- <p><strong>Author:</strong> {{ blog.author.username }}</p> -->
+                    <p><strong>Author:</strong> {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
+                    <p><strong>Created:</strong> {{ blog.created_at|date:"M d, Y" }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No blogs available yet.</p>
+        {% endif %}
+    </div>
+{% endblock content %}

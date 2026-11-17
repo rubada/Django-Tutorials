@@ -1,0 +1,81 @@
+<style>
+.comment-actions {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 4px 0;
+}
+
+.comment-actions summary {
+  cursor: pointer;
+  color: #0066cc;
+  list-style: none;
+}
+
+.comment-actions summary::-webkit-details-marker {
+  display: none;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: #0066cc;
+  cursor: pointer;
+}
+
+.comment-actions summary:hover,
+.link-button:hover {
+  text-decoration: underline;
+}
+</style>
+
+<!-- Loop over the comments and show each one -->
+{% for comment in comments %}
+  <div class="comment" style="margin-left: 20px;">
+    <p>
+      <strong>{{ comment.author }}</strong>
+      <small>{{ comment.created_at }}</small>
+    </p>
+    <p>{{ comment.content }}</p>
+
+    {% if not read_only %}
+      <div class="comment-actions">
+        <!-- Edit and Delete the comment by the owner -->
+        {% if comment.author == request.user %}
+          <details>
+            <summary>Edit</summary>
+            <form method="post" action="{% url 'edit_comment' comment.id %}">
+              {% csrf_token %}
+              <textarea name="content" required>{{ comment.content }}</textarea>
+              <button type="submit">Save</button>
+            </form>
+          </details>
+
+          <form method="post" action="{% url 'delete_comment' comment.id %}">
+            {% csrf_token %}
+            <button type="submit" class="link-button">Delete</button>
+          </form>
+        {% endif %}
+
+        <!-- The Reply form -->
+        {% if user.is_authenticated %}
+          <details>
+            <summary>Reply</summary>
+            <form method="post" action="{% url 'reply_comment' post.id comment.id %}">
+              {% csrf_token %}
+              <textarea name="content" required></textarea>
+              <button type="submit">Send reply</button>
+            </form>
+          </details>
+        {% endif %}
+
+      </div>
+    {% endif %}
+    <!-- Display replies using recursive include -->
+    {% if comment.replies.exists %}
+      {% include "blog_core/comment.html" with comments=comment.replies.all %}
+    {% endif %}
+  </div>
+{% endfor %}
